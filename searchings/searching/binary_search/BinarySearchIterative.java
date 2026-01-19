@@ -8,14 +8,14 @@ public class BinarySearchIterative {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter the size of the array : ");
 		int size = scanner.nextInt();
-		int[] array = new int[size];
+		int[] nums = new int[size];
 		System.out.println("Enter the elements into the array : ");
 		for (int index = 0; index < size; index++) {
-			array[index] = scanner.nextInt();
+			nums[index] = scanner.nextInt();
 		}
 		System.out.println("Enter the target number to search in the given array : ");
 		int target = scanner.nextInt();
-		int targetIndex = binarySearchIterative(array, target);
+		int targetIndex = binarySearchIterative(nums, target);
 		if (targetIndex != 1) {
 			System.out.println("Target element found at the index : " + targetIndex);
 		} else {
@@ -24,14 +24,14 @@ public class BinarySearchIterative {
 		scanner.close();
 	}
 
-	private static int binarySearchIterative(int[] array, int target) {
+	private static int binarySearchIterative(int[] nums, int target) {
 		int start = 0;
-		int end = array.length - 1;
+		int end = nums.length - 1;
 		while (start <= end) {
 			int mid = (start + end) / 2;
-			if (array[mid] == target) {
+			if (nums[mid] == target) {
 				return mid;
-			} else if (target < array[mid]) {
+			} else if (target < nums[mid]) {
 				end = mid - 1;
 			} else {
 				start = mid + 1;
@@ -39,5 +39,4 @@ public class BinarySearchIterative {
 		}
 		return -1;
 	}
-
 }

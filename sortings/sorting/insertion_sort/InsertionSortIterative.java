@@ -33,5 +33,4 @@ public class InsertionSortIterative {
 			array[innerIndex + 1] = key;
 		}
 	}
-
 }
