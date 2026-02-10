@@ -1,0 +1,36 @@
+package delete_the_middle_node_of_a_linked_list;
+
+public class DeleteTheMiddleNodeOfALinkedListOptimal {
+	public class ListNode {
+		int val;
+		ListNode next;
+
+		ListNode() {
+		}
+
+		ListNode(int val) {
+			this.val = val;
+		}
+
+		ListNode(int val, ListNode next) {
+			this.val = val;
+			this.next = next;
+		}
+	}
+
+	public ListNode deleteMiddle(ListNode head) {
+		if (head.next == null) {
+			return null;
+		}
+		ListNode slow = head;
+		ListNode fast = head;
+		ListNode previous = null;
+		while (fast != null && fast.next != null) {
+			previous = slow;
+			slow = slow.next;
+			fast = fast.next.next;
+		}
+		previous.next = slow.next;
+		return head;
+	}
+}
